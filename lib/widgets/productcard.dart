@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:e_commerce/utils/app_colors.dart';
-import 'package:get/get.dart';
 
 class ProductCard extends StatelessWidget {
   final String image;

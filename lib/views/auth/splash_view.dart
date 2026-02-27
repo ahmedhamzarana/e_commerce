@@ -1,18 +1,21 @@
+import 'package:e_commerce/providers/splash_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../controllers/splash_controller.dart';
+import 'package:provider/provider.dart';
 
 class SplashView extends StatelessWidget {
-  SplashView({super.key});
+  const SplashView({super.key});
 
-  final SplashController controller = Get.find();
   @override
   Widget build(BuildContext context) {
+    Provider.of<SplashProvider>(context).splashTimer(context);
     return Scaffold(
       body: Center(
         child: Text(
           "TStore",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
