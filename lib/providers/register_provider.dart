@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class LoginProvider extends ChangeNotifier {
+class RegisterProvider extends ChangeNotifier {
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPassWordController = TextEditingController();
 
   bool isloading = false;
   bool isvisbility = false;
@@ -16,5 +18,11 @@ class LoginProvider extends ChangeNotifier {
   void isRemember() {
     isrememeber = !isrememeber;
     notifyListeners();
+  }
+
+  void validateForm(){
+    if(passwordController == confirmPassWordController){
+      
+    }
   }
 }
