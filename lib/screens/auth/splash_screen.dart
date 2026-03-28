@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/providers/splash_provider.dart';
+import 'package:e_commerce_app/providers/auth/splash_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,14 +23,8 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Center(
-                child: Icon(Icons.shopping_cart_checkout_rounded),
-              ),
-            )
-          ]
+            Image(image: AssetImage("logo.avif"))
+          ],
         ),
       ),
     );
