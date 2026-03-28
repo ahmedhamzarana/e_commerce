@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/screens/app_main_screen.dart';
 import 'package:e_commerce_app/screens/auth/forgot_password_screen.dart';
 import 'package:e_commerce_app/screens/auth/login_screen.dart';
 import 'package:e_commerce_app/screens/auth/register_screen.dart';
@@ -16,6 +17,6 @@ class AppRoutes {
     loginRoute: (_) => LoginScreen(),
     registerRoute: (_) => RegisterScreen(),
     fogotPasswordRoute: (_) => ForgotPasswordScreen(),
-    // appmainRoute: (_) => AppMainScreen(), 
+    appmainRoute: (_) => AppMainScreen(), 
   };
 }

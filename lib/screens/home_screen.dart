@@ -9,8 +9,8 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white.withAlpha(25),
-        elevation: 100,
+        backgroundColor: AppColors.bglight.withAlpha(1),
+        elevation: 0,
         shadowColor: Colors.black45,
         title: Text(
           "Shopping App",
@@ -23,7 +23,6 @@ class HomeScreen extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(Icons.camera_alt_outlined)),
           IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
         ],
-        // 👇 Proper place for TextField
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(55),
           child: Padding(
@@ -34,10 +33,10 @@ class HomeScreen extends StatelessWidget {
                 cursorColor: AppColors.secondry,
                 decoration: InputDecoration(
                   hintText: "Search",
-                  hintStyle: TextStyle(color: Colors.grey.shade700),
+                  hintStyle: TextStyle(color: AppColors.info),
                   prefixIcon: const Icon(Icons.search, size: 20),
                   filled: true,
-                  fillColor: Colors.grey.withAlpha(100),
+                  fillColor: AppColors.info.withAlpha(50),
                   contentPadding: const EdgeInsets.symmetric(vertical: 10),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
@@ -46,6 +45,30 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+        ),
+      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Padding(
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 10, vertical: 10),
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 150,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    stops: [0, 5],
+                    colors: [AppColors.primary, AppColors.secondry],
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ],
           ),
         ),
       ),

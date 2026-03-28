@@ -185,7 +185,8 @@ class LoginScreen extends StatelessWidget {
                         foregroundColor: AppColors.bglight,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
-                      onPressed: () {},
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.appmainRoute),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
