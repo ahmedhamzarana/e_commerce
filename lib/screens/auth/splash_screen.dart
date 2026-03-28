@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/providers/auth/splash_provider.dart';
+import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,7 @@ class SplashScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.topRight,
-            colors: [const Color.fromARGB(255, 174, 52, 15), Colors.black],
+            colors: [AppColors.primary, AppColors.secondry],
           ),
         ),
         child: Column(

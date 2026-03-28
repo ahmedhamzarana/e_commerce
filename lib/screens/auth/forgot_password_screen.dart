@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/providers/auth/forgot_password_provider.dart';
+import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,10 +11,10 @@ class ForgotPasswordScreen extends StatelessWidget {
     final forgotProvider = Provider.of<ForgotPasswordProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 174, 52, 15),
+        backgroundColor: AppColors.primary,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios, color: AppColors.bglight),
         ),
       ),
 
@@ -25,7 +26,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             stops: [0.1, 0.6],
-            colors: [Color.fromARGB(255, 174, 52, 15), Colors.black],
+            colors: [AppColors.primary, AppColors.secondry],
           ),
         ),
 
@@ -34,7 +35,7 @@ class ForgotPasswordScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.lock_reset, size: 90, color: Colors.white),
+              const Icon(Icons.lock_reset, size: 90, color: AppColors.bglight),
 
               const SizedBox(height: 20),
 
@@ -52,29 +53,41 @@ class ForgotPasswordScreen extends StatelessWidget {
               // Email Field
               TextField(
                 controller: forgotProvider.emailController,
-                cursorColor: Colors.white,
-                style: const TextStyle(color: Colors.white),
+                cursorColor: AppColors.bglight,
+                style: const TextStyle(color: AppColors.bglight),
                 decoration: InputDecoration(
                   hintText: "Enter your email",
-                  hintStyle: const TextStyle(color: Colors.white70),
+                  hintStyle: const TextStyle(color: AppColors.bglight),
                   filled: true,
-                  fillColor: Colors.white.withAlpha(50),
+                  fillColor: AppColors.bglight.withAlpha(25),
                   prefixIcon: const Icon(
                     Icons.email_outlined,
-                    color: Colors.white,
+                    color: AppColors.bglight,
                   ),
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide: const BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(
+                      color: AppColors.info,
+                      width: 2,
+                      style: BorderStyle.solid,
+                    ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide: const BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(
+                      color: AppColors.info,
+                      width: 2,
+                      style: BorderStyle.solid,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide: const BorderSide(color: Colors.white),
+                    borderSide: const BorderSide(
+                      color: AppColors.info,
+                      width: 2,
+                      style: BorderStyle.solid,
+                    ),
                   ),
 
                   contentPadding: const EdgeInsets.symmetric(
@@ -91,8 +104,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 174, 52, 15),
-                    foregroundColor: Colors.white,
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: AppColors.bglight,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),

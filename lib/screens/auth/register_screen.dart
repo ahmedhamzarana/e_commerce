@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/providers/auth/register_provider.dart';
+import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,10 +12,10 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(255, 174, 52, 15),
+        backgroundColor: AppColors.primary,
         title: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+          icon: Icon(Icons.arrow_back_ios, color: AppColors.bglight),
         ),
       ),
       body: Container(
@@ -25,7 +26,7 @@ class RegisterScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             stops: [0.1, 0.5],
-            colors: [Color.fromARGB(255, 174, 52, 15), Colors.black],
+            colors: [AppColors.primary, AppColors.secondry],
           ),
         ),
         child: Padding(
@@ -38,7 +39,7 @@ class RegisterScreen extends StatelessWidget {
               const Icon(
                 Icons.person_add_alt_outlined,
                 size: 80,
-                color: Colors.white,
+                color: AppColors.bglight,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +47,7 @@ class RegisterScreen extends StatelessWidget {
                   const Text(
                     "Register",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.bglight,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
@@ -54,17 +55,22 @@ class RegisterScreen extends StatelessWidget {
                   SizedBox(height: 10),
                   TextField(
                     controller: registerprovider.usernameController,
-                    cursorColor: Colors.white,
-                     style: const TextStyle(color: Colors.white),
+                    cursorColor: AppColors.bglight,
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: "Username",
+                      hintStyle: TextStyle(color: AppColors.bglight),
+
                       filled: true,
-                      fillColor: Colors.white.withAlpha(50),
-                      prefixIcon: Icon(Icons.email_outlined),
+                      fillColor: Colors.white.withAlpha(25),
+                      prefixIcon: Icon(
+                        Icons.person_outlined,
+                        color: AppColors.bglight,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -72,7 +78,7 @@ class RegisterScreen extends StatelessWidget {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -80,7 +86,7 @@ class RegisterScreen extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -95,16 +101,22 @@ class RegisterScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   TextField(
                     controller: registerprovider.emailController,
-                    cursorColor: Colors.white,
+                    cursorColor: AppColors.bglight,
+                    style: TextStyle(color: AppColors.bglight),
                     decoration: InputDecoration(
                       hintText: "Email",
+                      hintStyle: TextStyle(color: AppColors.bglight),
+
                       filled: true,
-                      fillColor: Colors.white.withAlpha(50),
-                      prefixIcon: Icon(Icons.email_outlined),
+                      fillColor: AppColors.bglight.withAlpha(25),
+                      prefixIcon: Icon(
+                        Icons.email_outlined,
+                        color: AppColors.bglight,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -112,7 +124,7 @@ class RegisterScreen extends StatelessWidget {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -120,7 +132,7 @@ class RegisterScreen extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -136,25 +148,32 @@ class RegisterScreen extends StatelessWidget {
 
                   TextField(
                     controller: registerprovider.passwordController,
-                    cursorColor: Colors.white,
+                    cursorColor: AppColors.bglight,
                     obscureText: registerprovider.isvisbility,
+                    style: TextStyle(color: AppColors.bglight),
+
                     decoration: InputDecoration(
                       hintText: "Password",
+                      hintStyle: TextStyle(color: AppColors.bglight),
                       filled: true,
-                      fillColor: Colors.white.withAlpha(50),
-                      prefixIcon: const Icon(Icons.lock_outline_rounded),
+                      fillColor: AppColors.bglight.withAlpha(25),
+                      prefixIcon: const Icon(
+                        Icons.lock_outline_rounded,
+                        color: AppColors.bglight,
+                      ),
                       suffixIcon: GestureDetector(
                         onTap: () => registerprovider.isVisiblity(),
                         child: Icon(
                           registerprovider.isvisbility
                               ? Icons.visibility_off_outlined
                               : Icons.visibility_outlined,
+                          color: AppColors.bglight,
                         ),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -162,7 +181,7 @@ class RegisterScreen extends StatelessWidget {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -170,7 +189,7 @@ class RegisterScreen extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -184,26 +203,33 @@ class RegisterScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   TextField(
+                    style: TextStyle(color: AppColors.bglight),
                     controller: registerprovider.confirmPassWordController,
-                    cursorColor: Colors.white,
+                    cursorColor: AppColors.bglight,
                     obscureText: registerprovider.isvisbility,
                     decoration: InputDecoration(
                       hintText: "Confirm Password",
+                      hintStyle: TextStyle(color: AppColors.bglight),
+
                       filled: true,
-                      fillColor: Colors.white.withAlpha(50),
-                      prefixIcon: const Icon(Icons.lock_outline_rounded),
+                      fillColor: AppColors.bglight.withAlpha(25),
+                      prefixIcon: const Icon(
+                        Icons.lock_outline_rounded,
+                        color: AppColors.bglight,
+                      ),
                       suffixIcon: GestureDetector(
                         onTap: () => registerprovider.isVisiblity(),
                         child: Icon(
                           registerprovider.isvisbility
                               ? Icons.visibility_off_outlined
                               : Icons.visibility_outlined,
+                          color: AppColors.bglight,
                         ),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -211,7 +237,7 @@ class RegisterScreen extends StatelessWidget {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -219,7 +245,7 @@ class RegisterScreen extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: AppColors.info,
                           width: 2,
                           style: BorderStyle.solid,
                         ),
@@ -237,8 +263,8 @@ class RegisterScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 174, 52, 15),
-                        foregroundColor: Colors.white,
+                        backgroundColor: AppColors.primary,
+                        foregroundColor: AppColors.bglight,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
                       onPressed: () {},
@@ -258,15 +284,10 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Do You Have An Account",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: AppColors.bglight),
                       ),
                       SizedBox(width: 4),
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 174, 52, 15),
-                        ),
-                      ),
+                      Text("Login", style: TextStyle(color: AppColors.primary)),
                     ],
                   ),
                 ],

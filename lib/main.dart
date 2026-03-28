@@ -8,13 +8,15 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_)=> SplashProvider()),
-      ChangeNotifierProvider(create: (_)=> LoginProvider()),
-      ChangeNotifierProvider(create: (_)=> RegisterProvider()),
-      ChangeNotifierProvider(create: (_)=> ForgotPasswordProvider()),
-    ],child: MyApp(),)
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => SplashProvider()),
+        ChangeNotifierProvider(create: (_) => LoginProvider()),
+        ChangeNotifierProvider(create: (_) => RegisterProvider()),
+        ChangeNotifierProvider(create: (_) => ForgotPasswordProvider()),
+      ],
+      child: MyApp(),
+    ),
   );
 }
 
@@ -25,9 +27,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: AppRoutes.splashRoute,       
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.splashRoute,
       routes: AppRoutes.routes,
     );
   }
 }
-
