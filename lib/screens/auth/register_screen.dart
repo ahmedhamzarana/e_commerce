@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/providers/auth/register_provider.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
+import 'package:e_commerce_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -287,7 +288,14 @@ class RegisterScreen extends StatelessWidget {
                         style: TextStyle(color: AppColors.bglight),
                       ),
                       SizedBox(width: 4),
-                      Text("Login", style: TextStyle(color: AppColors.primary)),
+                      GestureDetector(
+                        onTap: () =>
+                            Navigator.pushNamed(context, AppRoutes.loginRoute),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(color: AppColors.primary),
+                        ),
+                      ),
                     ],
                   ),
                 ],
