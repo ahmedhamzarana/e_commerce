@@ -18,42 +18,37 @@ class _AppMainScreenState extends State<AppMainScreen> {
     return Scaffold(
       backgroundColor: AppColors.bglight,
       body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
         backgroundColor: AppColors.bglight,
-        type: BottomNavigationBarType.fixed,
         elevation: 10,
 
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.secondry,
-        selectedFontSize: 12,
-        unselectedFontSize: 12,
-
-        onTap: (index) {
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        onDestinationSelected: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
 
-        items: const [
-          BottomNavigationBarItem(
+        destinations: const [
+          NavigationDestination(
             icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
+            selectedIcon: Icon(Icons.home),
             label: "Home",
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.message_outlined),
-            activeIcon: Icon(Icons.message),
+            selectedIcon: Icon(Icons.message),
             label: "Messages",
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.shopping_cart_checkout),
-            activeIcon: Icon(Icons.shopping_cart_checkout_outlined),
+            selectedIcon: Icon(Icons.shopping_cart_checkout_outlined),
             label: "Cart",
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.person_outline),
-            activeIcon: Icon(Icons.person),
+            selectedIcon: Icon(Icons.person),
             label: "Profile",
           ),
         ],

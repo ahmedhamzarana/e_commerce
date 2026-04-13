@@ -21,7 +21,11 @@ class RegisterScreen extends StatelessWidget {
       ),
       body: Container(
         width: double.infinity,
-        height: MediaQuery.of(context).size.height,
+        constraints: BoxConstraints(
+          minHeight:
+              MediaQuery.of(context).size.height -
+              AppBar().preferredSize.height,
+        ),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color bglight = Colors.white;
+  static const Color bglight = Color.fromARGB(255, 243, 240, 240);
   static const Color primary = Color.fromARGB(255, 174, 52, 15);
-  static const Color secondry = Colors.black;
-  static const Color info = Colors.grey;
-  static const Color success = Colors.green;
-  static const Color danger = Colors.red;
+  static const Color secondry = Color.fromARGB(255, 33, 33, 33);
+  static const Color info = Color.fromARGB(255, 128, 128, 128);
+  static const Color success = Color.fromARGB(255, 34, 139, 34);
+  static const Color danger = Color.fromARGB(255, 220, 20, 60);
 }
