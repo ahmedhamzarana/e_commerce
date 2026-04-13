@@ -1,31 +1,17 @@
-import 'package:e_commerce_app/providers/auth/register_provider.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:e_commerce_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:iconsax/iconsax.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final registerprovider = Provider.of<RegisterProvider>(context);
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: AppColors.primary,
-        title: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios, color: AppColors.bglight),
-        ),
-      ),
       body: Container(
         width: double.infinity,
-        constraints: BoxConstraints(
-          minHeight:
-              MediaQuery.of(context).size.height -
-              AppBar().preferredSize.height,
-        ),
+        height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -42,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
 
             children: [
               const Icon(
-                Icons.person_add_alt_outlined,
+                Icons.shopping_cart_checkout_rounded,
                 size: 80,
                 color: AppColors.bglight,
               ),
@@ -50,72 +36,24 @@ class RegisterScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "Register",
+                    "Login",
                     style: TextStyle(
-                      color: AppColors.bglight,
+                      color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(height: 10),
                   TextField(
-                    controller: registerprovider.usernameController,
-                    cursorColor: AppColors.bglight,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: "Username",
-                      hintStyle: TextStyle(color: AppColors.bglight),
-
-                      filled: true,
-                      fillColor: Colors.white.withAlpha(25),
-                      prefixIcon: Icon(
-                        Icons.person_outlined,
-                        color: AppColors.bglight,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 14,
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 20),
-                  TextField(
-                    controller: registerprovider.emailController,
-                    cursorColor: AppColors.bglight,
                     style: TextStyle(color: AppColors.bglight),
+                    cursorColor: AppColors.bglight,
                     decoration: InputDecoration(
                       hintText: "Email",
                       hintStyle: TextStyle(color: AppColors.bglight),
-
                       filled: true,
                       fillColor: AppColors.bglight.withAlpha(25),
                       prefixIcon: Icon(
-                        Icons.email_outlined,
+                        Iconsax.lock,
                         color: AppColors.bglight,
                       ),
                       border: OutlineInputBorder(
@@ -152,11 +90,8 @@ class RegisterScreen extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   TextField(
-                    controller: registerprovider.passwordController,
                     cursorColor: AppColors.bglight,
-                    obscureText: registerprovider.isvisbility,
                     style: TextStyle(color: AppColors.bglight),
-
                     decoration: InputDecoration(
                       hintText: "Password",
                       hintStyle: TextStyle(color: AppColors.bglight),
@@ -167,13 +102,7 @@ class RegisterScreen extends StatelessWidget {
                         color: AppColors.bglight,
                       ),
                       suffixIcon: GestureDetector(
-                        onTap: () => registerprovider.isVisiblity(),
-                        child: Icon(
-                          registerprovider.isvisbility
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
-                          color: AppColors.bglight,
-                        ),
+                       
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
@@ -206,61 +135,34 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  TextField(
-                    style: TextStyle(color: AppColors.bglight),
-                    controller: registerprovider.confirmPassWordController,
-                    cursorColor: AppColors.bglight,
-                    obscureText: registerprovider.isvisbility,
-                    decoration: InputDecoration(
-                      hintText: "Confirm Password",
-                      hintStyle: TextStyle(color: AppColors.bglight),
-
-                      filled: true,
-                      fillColor: AppColors.bglight.withAlpha(25),
-                      prefixIcon: const Icon(
-                        Icons.lock_outline_rounded,
-                        color: AppColors.bglight,
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Checkbox(
+                            activeColor: AppColors.primary,
+                            value: false,
+                            onChanged: (value) => null,
+                          ),
+                          Text(
+                            "Remember Me",
+                            style: TextStyle(color: AppColors.bglight),
+                          ),
+                        ],
                       ),
-                      suffixIcon: GestureDetector(
-                        onTap: () => registerprovider.isVisiblity(),
-                        child: Icon(
-                          registerprovider.isvisbility
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
-                          color: AppColors.bglight,
+                      TextButton(
+                        onPressed: () => Navigator.pushNamed(
+                          context,
+                          AppRoutes.fogotPasswordRoute,
+                        ),
+                        child: Text(
+                          "Forgot Password?",
+                          style: TextStyle(color: AppColors.bglight),
                         ),
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 14,
-                      ),
-                    ),
+                    ],
                   ),
                   const SizedBox(height: 30),
 
@@ -272,11 +174,12 @@ class RegisterScreen extends StatelessWidget {
                         foregroundColor: AppColors.bglight,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
-                      onPressed: () {},
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.appmainRoute),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Register"),
+                          Text("Login"),
                           SizedBox(width: 7),
                           Icon(Icons.arrow_forward),
                         ],
@@ -288,18 +191,30 @@ class RegisterScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Do You Have An Account",
-                        style: TextStyle(color: AppColors.bglight),
+                        "Dont Have An Account",
+                        style: TextStyle(color: Colors.white),
                       ),
                       SizedBox(width: 4),
                       GestureDetector(
-                        onTap: () =>
-                            Navigator.pushNamed(context, AppRoutes.loginRoute),
+                        onTap: () => Navigator.pushNamed(
+                          context,
+                          AppRoutes.registerRoute,
+                        ),
                         child: Text(
-                          "Login",
+                          "Register",
                           style: TextStyle(color: AppColors.primary),
                         ),
                       ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(child: Divider()),
+                      SizedBox(width: 4),
+                      Text("OR", style: TextStyle(color: AppColors.bglight)),
+                      SizedBox(width: 4),
+                      Expanded(child: Divider()),
                     ],
                   ),
                 ],

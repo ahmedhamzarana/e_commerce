@@ -1,22 +1,11 @@
-import 'package:e_commerce_app/providers/auth/forgot_password_provider.dart';
-import 'package:e_commerce_app/providers/auth/login_provider.dart';
-import 'package:e_commerce_app/providers/auth/register_provider.dart';
-import 'package:e_commerce_app/providers/auth/splash_provider.dart';
+
 import 'package:e_commerce_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => SplashProvider()),
-        ChangeNotifierProvider(create: (_) => LoginProvider()),
-        ChangeNotifierProvider(create: (_) => RegisterProvider()),
-        ChangeNotifierProvider(create: (_) => ForgotPasswordProvider()),
-      ],
-      child: MyApp(),
-    ),
+    const MyApp(),
   );
 }
 
@@ -25,10 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Ecomm App',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.splashRoute,
+      initialRoute ,
       routes: AppRoutes.routes,
     );
   }

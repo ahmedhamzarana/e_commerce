@@ -1,14 +1,11 @@
-import 'package:e_commerce_app/providers/auth/forgot_password_provider.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final forgotProvider = Provider.of<ForgotPasswordProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primary,
@@ -52,7 +49,6 @@ class ForgotPasswordScreen extends StatelessWidget {
 
               // Email Field
               TextField(
-                controller: forgotProvider.emailController,
                 cursorColor: AppColors.bglight,
                 style: const TextStyle(color: AppColors.bglight),
                 decoration: InputDecoration(

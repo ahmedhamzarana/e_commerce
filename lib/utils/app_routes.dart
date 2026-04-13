@@ -1,8 +1,8 @@
-import 'package:e_commerce_app/screens/app_main_screen.dart';
-import 'package:e_commerce_app/screens/auth/forgot_password_screen.dart';
-import 'package:e_commerce_app/screens/auth/login_screen.dart';
-import 'package:e_commerce_app/screens/auth/register_screen.dart';
-import 'package:e_commerce_app/screens/auth/splash_screen.dart';
+import 'package:e_commerce_app/views/app_main_screen.dart';
+import 'package:e_commerce_app/views/auth/forgot_password_screen.dart';
+import 'package:e_commerce_app/views/auth/login_screen.dart';
+import 'package:e_commerce_app/views/auth/register_screen.dart';
+import 'package:e_commerce_app/views/auth/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {

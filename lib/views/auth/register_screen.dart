@@ -1,19 +1,28 @@
-import 'package:e_commerce_app/providers/auth/login_provider.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:e_commerce_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final loginprovider = Provider.of<LoginProvider>(context);
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.primary,
+        title: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios, color: AppColors.bglight),
+        ),
+      ),
       body: Container(
         width: double.infinity,
-        height: MediaQuery.of(context).size.height,
+        constraints: BoxConstraints(
+          minHeight:
+              MediaQuery.of(context).size.height -
+              AppBar().preferredSize.height,
+        ),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -30,7 +39,7 @@ class LoginScreen extends StatelessWidget {
 
             children: [
               const Icon(
-                Icons.shopping_cart_checkout_rounded,
+                Icons.person_add_alt_outlined,
                 size: 80,
                 color: AppColors.bglight,
               ),
@@ -38,21 +47,66 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "Login",
+                    "Register",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.bglight,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(height: 10),
                   TextField(
-                    style: TextStyle(color: AppColors.bglight),
-                    controller: loginprovider.emailController,
                     cursorColor: AppColors.bglight,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: "Username",
+                      hintStyle: TextStyle(color: AppColors.bglight),
+
+                      filled: true,
+                      fillColor: Colors.white.withAlpha(25),
+                      prefixIcon: Icon(
+                        Icons.person_outlined,
+                        color: AppColors.bglight,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                          color: AppColors.info,
+                          width: 2,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                          color: AppColors.info,
+                          width: 2,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                          color: AppColors.info,
+                          width: 2,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 14,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+                  TextField(
+                    cursorColor: AppColors.bglight,
+                    style: TextStyle(color: AppColors.bglight),
                     decoration: InputDecoration(
                       hintText: "Email",
                       hintStyle: TextStyle(color: AppColors.bglight),
+
                       filled: true,
                       fillColor: AppColors.bglight.withAlpha(25),
                       prefixIcon: Icon(
@@ -93,10 +147,9 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   TextField(
-                    controller: loginprovider.passwordController,
                     cursorColor: AppColors.bglight,
-                    obscureText: loginprovider.isvisbility,
                     style: TextStyle(color: AppColors.bglight),
+
                     decoration: InputDecoration(
                       hintText: "Password",
                       hintStyle: TextStyle(color: AppColors.bglight),
@@ -106,15 +159,7 @@ class LoginScreen extends StatelessWidget {
                         Icons.lock_outline_rounded,
                         color: AppColors.bglight,
                       ),
-                      suffixIcon: GestureDetector(
-                        onTap: () => loginprovider.isVisiblity(),
-                        child: Icon(
-                          loginprovider.isvisbility
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
-                          color: AppColors.bglight,
-                        ),
-                      ),
+                      
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
@@ -146,34 +191,51 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Checkbox(
-                            activeColor: AppColors.primary,
-                            value: loginprovider.isrememeber,
-                            onChanged: (value) => loginprovider.isRemember(),
-                          ),
-                          Text(
-                            "Remember Me",
-                            style: TextStyle(color: AppColors.bglight),
-                          ),
-                        ],
+                  const SizedBox(height: 20),
+                  TextField(
+                    style: TextStyle(color: AppColors.bglight),
+                    cursorColor: AppColors.bglight,
+                    decoration: InputDecoration(
+                      hintText: "Confirm Password",
+                      hintStyle: TextStyle(color: AppColors.bglight),
+
+                      filled: true,
+                      fillColor: AppColors.bglight.withAlpha(25),
+                      prefixIcon: const Icon(
+                        Icons.lock_outline_rounded,
+                        color: AppColors.bglight,
                       ),
-                      TextButton(
-                        onPressed: () => Navigator.pushNamed(
-                          context,
-                          AppRoutes.fogotPasswordRoute,
-                        ),
-                        child: Text(
-                          "Forgot Password?",
-                          style: TextStyle(color: AppColors.bglight),
+                      
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                          color: AppColors.info,
+                          width: 2,
+                          style: BorderStyle.solid,
                         ),
                       ),
-                    ],
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                          color: AppColors.info,
+                          width: 2,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                          color: AppColors.info,
+                          width: 2,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 14,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 30),
 
@@ -185,12 +247,11 @@ class LoginScreen extends StatelessWidget {
                         foregroundColor: AppColors.bglight,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
-                      onPressed: () =>
-                          Navigator.pushNamed(context, AppRoutes.appmainRoute),
+                      onPressed: () {},
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Login"),
+                          Text("Register"),
                           SizedBox(width: 7),
                           Icon(Icons.arrow_forward),
                         ],
@@ -202,30 +263,18 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Dont Have An Account",
-                        style: TextStyle(color: Colors.white),
+                        "Do You Have An Account",
+                        style: TextStyle(color: AppColors.bglight),
                       ),
                       SizedBox(width: 4),
                       GestureDetector(
-                        onTap: () => Navigator.pushNamed(
-                          context,
-                          AppRoutes.registerRoute,
-                        ),
+                        onTap: () =>
+                            Navigator.pushNamed(context, AppRoutes.loginRoute),
                         child: Text(
-                          "Register",
+                          "Login",
                           style: TextStyle(color: AppColors.primary),
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(child: Divider()),
-                      SizedBox(width: 4),
-                      Text("OR", style: TextStyle(color: AppColors.bglight)),
-                      SizedBox(width: 4),
-                      Expanded(child: Divider()),
                     ],
                   ),
                 ],
