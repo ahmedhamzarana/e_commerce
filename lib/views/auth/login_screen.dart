@@ -1,13 +1,15 @@
+import 'package:e_commerce_app/controllers/auth/login_controller.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:e_commerce_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final loginController = Get.put(LoginController());
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -28,7 +30,7 @@ class LoginScreen extends StatelessWidget {
 
             children: [
               const Icon(
-                Icons.shopping_cart_checkout_rounded,
+                Icons.shopping_cart_outlined,
                 size: 80,
                 color: AppColors.bglight,
               ),
@@ -45,6 +47,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   TextField(
+                    controller: loginController.emailController,
                     style: TextStyle(color: AppColors.bglight),
                     cursorColor: AppColors.bglight,
                     decoration: InputDecoration(
@@ -53,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                       filled: true,
                       fillColor: AppColors.bglight.withAlpha(25),
                       prefixIcon: Icon(
-                        Iconsax.lock,
+                        Icons.lock_outline_rounded,
                         color: AppColors.bglight,
                       ),
                       border: OutlineInputBorder(
@@ -90,6 +93,8 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   TextField(
+                    controller: loginController.passwordController,
+                    obscureText: loginController.isObsecure,
                     cursorColor: AppColors.bglight,
                     style: TextStyle(color: AppColors.bglight),
                     decoration: InputDecoration(
@@ -102,7 +107,13 @@ class LoginScreen extends StatelessWidget {
                         color: AppColors.bglight,
                       ),
                       suffixIcon: GestureDetector(
-                       
+                       onTap: () => loginController.toggleObsecure(),
+                        child: Icon(
+                          loginController.isObsecure
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined,
+                          color: AppColors.bglight,
+                        ),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
@@ -143,8 +154,8 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           Checkbox(
                             activeColor: AppColors.primary,
-                            value: false,
-                            onChanged: (value) => null,
+                            value: loginController.isRemember,
+                            onChanged: (value) => loginController.toggleRemember(),
                           ),
                           Text(
                             "Remember Me",
@@ -175,7 +186,7 @@ class LoginScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
                       onPressed: () =>
-                          Navigator.pushNamed(context, AppRoutes.appmainRoute),
+                          Get.offAllNamed(AppRoutes.appmainRoute),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -196,10 +207,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 4),
                       GestureDetector(
-                        onTap: () => Navigator.pushNamed(
-                          context,
-                          AppRoutes.registerRoute,
-                        ),
+                        onTap: () => Get.toNamed(AppRoutes.registerRoute),
                         child: Text(
                           "Register",
                           style: TextStyle(color: AppColors.primary),
