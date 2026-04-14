@@ -63,7 +63,29 @@ class HomeScreen extends StatelessWidget {
                     mainAxisSpacing: 10,
                   ),
                   itemBuilder: (context, index) {
-                    return const ProductCard();
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/product.png",
+                            width: 80,
+                            height: 80,
+                          ),
+                          const SizedBox(height: 10),
+                          const Text(
+                            "Product Name",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 5),
+                          const Text("\$99.99"),
+                        ],
+                      ),
+                    );
                   },
                 ),
               ],

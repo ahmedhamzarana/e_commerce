@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Ecomm App',
       debugShowCheckedModeBanner: false,
-      initialRoute ,
+      initialRoute: AppRoutes.splashRoute,
       routes: AppRoutes.routes,
     );
   }

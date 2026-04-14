@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/views/home_screen.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class AppMainScreen extends StatefulWidget {
   const AppMainScreen({super.key});
@@ -33,23 +32,23 @@ class _AppMainScreenState extends State<AppMainScreen> {
 
         destinations: const [
           NavigationDestination(
-            icon: Icon(Iconsax.home),
-            selectedIcon: Icon(Iconsax.home),
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
             label: "Home",
           ),
           NavigationDestination(
-            icon: Icon(Iconsax.message),
-            selectedIcon: Icon(Iconsax.message),
+            icon: Icon(Icons.message_outlined),
+            selectedIcon: Icon(Icons.message),
             label: "Messages",
           ),
           NavigationDestination(
-            icon: Icon(Iconsax.shopping_cart),
-            selectedIcon: Icon(Iconsax.shopping_cart),
+            icon: Icon(Icons.shopping_cart_outlined),
+            selectedIcon: Icon(Icons.shopping_cart),
             label: "Cart",
           ),
           NavigationDestination(
-            icon: Icon(Iconsax.user),
-            selectedIcon: Icon(Iconsax.user),
+            icon: Icon(Icons.person_outline),
+            selectedIcon: Icon(Icons.person),
             label: "Profile",
           ),
         ],
