@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/controllers/auth/login_controller.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
-import 'package:e_commerce_app/utils/app_routes.dart';
+import 'package:e_commerce_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -59,6 +59,7 @@ class LoginScreen extends StatelessWidget {
                         Icons.lock_outline_rounded,
                         color: AppColors.bglight,
                       ),
+                      errorText: loginController.emailController.text,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
@@ -94,7 +95,7 @@ class LoginScreen extends StatelessWidget {
 
                   TextField(
                     controller: loginController.passwordController,
-                    obscureText: loginController.isObsecure,
+                    obscureText: loginController.isObsecure.value,
                     cursorColor: AppColors.bglight,
                     style: TextStyle(color: AppColors.bglight),
                     decoration: InputDecoration(
@@ -106,15 +107,17 @@ class LoginScreen extends StatelessWidget {
                         Icons.lock_outline_rounded,
                         color: AppColors.bglight,
                       ),
+
                       suffixIcon: GestureDetector(
                        onTap: () => loginController.toggleObsecure(),
                         child: Icon(
-                          loginController.isObsecure
+                          loginController.isObsecure.value
                               ? Icons.visibility_off_outlined
                               : Icons.visibility_outlined,
                           color: AppColors.bglight,
                         ),
                       ),
+                      errorText: loginController.passwordController.text,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                         borderSide: BorderSide(
@@ -154,7 +157,7 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           Checkbox(
                             activeColor: AppColors.primary,
-                            value: loginController.isRemember,
+                            value: loginController.isRemember.value,
                             onChanged: (value) => loginController.toggleRemember(),
                           ),
                           Text(
@@ -164,10 +167,7 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                       TextButton(
-                        onPressed: () => Navigator.pushNamed(
-                          context,
-                          AppRoutes.fogotPasswordRoute,
-                        ),
+                        onPressed: () => Get.toNamed(AppRoutes.forgotPasswordRoute),
                         child: Text(
                           "Forgot Password?",
                           style: TextStyle(color: AppColors.bglight),

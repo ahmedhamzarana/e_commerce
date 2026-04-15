@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/utils/app_routes.dart';
+import 'package:e_commerce_app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {

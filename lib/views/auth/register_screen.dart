@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/utils/app_colors.dart';
-import 'package:e_commerce_app/utils/app_routes.dart';
+import 'package:e_commerce_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
