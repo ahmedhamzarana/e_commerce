@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: AppColors.bglight,
+        backgroundColor: AppColors.secondry,
         elevation: 0,
         title: const Text(
           "Shopping App",
@@ -19,11 +19,25 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.camera_alt_outlined),
+          TextField(
+            cursorColor: AppColors.primary,
+            style: const TextStyle(color: AppColors.primary),
+            decoration: InputDecoration(
+              hintText: "Search products",
+              hintStyle: const TextStyle(color: AppColors.primary),
+              filled: true,
+              fillColor: AppColors.bglight.withAlpha(50),
+              prefixIcon: const Icon(Icons.search, color: AppColors.primary),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 0,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide.none,
+              ),
+            ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
         ],
       ),
 

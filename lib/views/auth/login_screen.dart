@@ -9,225 +9,230 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final loginController = Get.put(LoginController());
+    final loginController = Get.find<LoginController>();
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: [0.1, 0.5],
-            colors: [AppColors.primary, AppColors.secondry],
+      body: Obx(
+        () => Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.1, 0.5],
+              colors: [AppColors.primary, AppColors.secondry],
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
 
-            children: [
-              const Icon(
-                Icons.shopping_cart_outlined,
-                size: 80,
-                color: AppColors.bglight,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  TextField(
-                    controller: loginController.emailController,
-                    style: TextStyle(color: AppColors.bglight),
-                    cursorColor: AppColors.bglight,
-                    decoration: InputDecoration(
-                      hintText: "Email",
-                      hintStyle: TextStyle(color: AppColors.bglight),
-                      filled: true,
-                      fillColor: AppColors.bglight.withAlpha(25),
-                      prefixIcon: Icon(
-                        Icons.lock_outline_rounded,
-                        color: AppColors.bglight,
-                      ),
-                      errorText: loginController.emailController.text,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 14,
+              children: [
+                const Icon(
+                  Icons.shopping_cart_outlined,
+                  size: 80,
+                  color: AppColors.bglight,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  TextField(
-                    controller: loginController.passwordController,
-                    obscureText: loginController.isObsecure.value,
-                    cursorColor: AppColors.bglight,
-                    style: TextStyle(color: AppColors.bglight),
-                    decoration: InputDecoration(
-                      hintText: "Password",
-                      hintStyle: TextStyle(color: AppColors.bglight),
-                      filled: true,
-                      fillColor: AppColors.bglight.withAlpha(25),
-                      prefixIcon: const Icon(
-                        Icons.lock_outline_rounded,
-                        color: AppColors.bglight,
-                      ),
-
-                      suffixIcon: GestureDetector(
-                       onTap: () => loginController.toggleObsecure(),
-                        child: Icon(
-                          loginController.isObsecure.value
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
+                    SizedBox(height: 10),
+                    TextField(
+                      controller: loginController.emailController,
+                      style: TextStyle(color: AppColors.bglight),
+                      cursorColor: AppColors.bglight,
+                      decoration: InputDecoration(
+                        hintText: "Email",
+                        hintStyle: TextStyle(color: AppColors.bglight),
+                        filled: true,
+                        fillColor: AppColors.bglight.withAlpha(25),
+                        prefixIcon: Icon(
+                          Icons.lock_outline_rounded,
                           color: AppColors.bglight,
                         ),
-                      ),
-                      errorText: loginController.passwordController.text,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: AppColors.info,
+                            width: 2,
+                            style: BorderStyle.solid,
+                          ),
                         ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: AppColors.info,
+                            width: 2,
+                            style: BorderStyle.solid,
+                          ),
                         ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(
-                          color: AppColors.info,
-                          width: 2,
-                          style: BorderStyle.solid,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: AppColors.info,
+                            width: 2,
+                            style: BorderStyle.solid,
+                          ),
                         ),
-                      ),
-
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 14,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 14,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Checkbox(
-                            activeColor: AppColors.primary,
-                            value: loginController.isRemember.value,
-                            onChanged: (value) => loginController.toggleRemember(),
+
+                    const SizedBox(height: 20),
+
+                    TextField(
+                      controller: loginController.passwordController,
+                      obscureText: loginController.isObsecure.value,
+                      cursorColor: AppColors.bglight,
+                      style: TextStyle(color: AppColors.bglight),
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        hintStyle: TextStyle(color: AppColors.bglight),
+                        filled: true,
+                        fillColor: AppColors.bglight.withAlpha(25),
+                        prefixIcon: const Icon(
+                          Icons.lock_outline_rounded,
+                          color: AppColors.bglight,
+                        ),
+
+                        suffixIcon: GestureDetector(
+                          onTap: () => loginController.toggleObsecure(),
+                          child: Icon(
+                            loginController.isObsecure.value
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility_outlined,
+                            color: AppColors.bglight,
                           ),
-                          Text(
-                            "Remember Me",
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: AppColors.info,
+                            width: 2,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: AppColors.info,
+                            width: 2,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: AppColors.info,
+                            width: 2,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 14,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                              activeColor: AppColors.primary,
+                              value: loginController.isRemember.value,
+                              onChanged: (value) =>
+                                  loginController.toggleRemember(),
+                            ),
+                            Text(
+                              "Remember Me",
+                              style: TextStyle(color: AppColors.bglight),
+                            ),
+                          ],
+                        ),
+                        TextButton(
+                          onPressed: () =>
+                              Get.toNamed(AppRoutes.forgotPasswordRoute),
+                          child: Text(
+                            "Forgot Password?",
                             style: TextStyle(color: AppColors.bglight),
                           ),
-                        ],
-                      ),
-                      TextButton(
-                        onPressed: () => Get.toNamed(AppRoutes.forgotPasswordRoute),
-                        child: Text(
-                          "Forgot Password?",
-                          style: TextStyle(color: AppColors.bglight),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
 
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                        foregroundColor: AppColors.bglight,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                      ),
-                      onPressed: () =>
-                          Get.offAllNamed(AppRoutes.appmainRoute),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Login"),
-                          SizedBox(width: 7),
-                          Icon(Icons.arrow_forward),
-                        ],
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: AppColors.bglight,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                        ),
+                        onPressed: () {
+                          if (loginController.validateInputs()) {
+                            Get.offAllNamed(AppRoutes.appmainRoute);
+                          }
+                        },
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Login"),
+                            SizedBox(width: 7),
+                            Icon(Icons.arrow_forward),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Dont Have An Account",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      SizedBox(width: 4),
-                      GestureDetector(
-                        onTap: () => Get.toNamed(AppRoutes.registerRoute),
-                        child: Text(
-                          "Register",
-                          style: TextStyle(color: AppColors.primary),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Dont Have An Account",
+                          style: TextStyle(color: Colors.white),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(child: Divider()),
-                      SizedBox(width: 4),
-                      Text("OR", style: TextStyle(color: AppColors.bglight)),
-                      SizedBox(width: 4),
-                      Expanded(child: Divider()),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+                        SizedBox(width: 4),
+                        GestureDetector(
+                          onTap: () => Get.toNamed(AppRoutes.registerRoute),
+                          child: Text(
+                            "Register",
+                            style: TextStyle(color: AppColors.primary),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Expanded(child: Divider()),
+                        SizedBox(width: 4),
+                        Text("OR", style: TextStyle(color: AppColors.bglight)),
+                        SizedBox(width: 4),
+                        Expanded(child: Divider()),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

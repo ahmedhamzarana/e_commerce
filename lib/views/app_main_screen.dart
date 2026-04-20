@@ -1,6 +1,7 @@
-import 'package:e_commerce_app/views/home_screen.dart';
+import 'package:e_commerce_app/controllers/home_controller.dart';
 import 'package:e_commerce_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppMainScreen extends StatefulWidget {
   const AppMainScreen({super.key});
@@ -10,24 +11,21 @@ class AppMainScreen extends StatefulWidget {
 }
 
 class _AppMainScreenState extends State<AppMainScreen> {
-  int _currentIndex = 0;
+  final controller = Get.find<AppMainController>();
 
-  final List<Widget> _pages = const [HomeScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bglight,
-      body: _pages[_currentIndex],
+      body: controller.pages[controller.currentIndex.value],
       bottomNavigationBar: NavigationBar(
-        selectedIndex: _currentIndex,
+        selectedIndex: controller.currentIndex.value,
         backgroundColor: AppColors.bglight,
         elevation: 10,
         indicatorColor: AppColors.primary.withAlpha(50),
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         onDestinationSelected: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          controller.currentIndex.value = index;
         },
 
         destinations: const [
