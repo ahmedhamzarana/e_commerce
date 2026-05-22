@@ -1,4 +1,3 @@
-// lib/bindings/splash_binding.dart
 import 'package:e_commerce_app/controllers/auth/splash_controller.dart';
 import 'package:get/get.dart';
 

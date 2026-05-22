@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 class AppMainBinding extends Bindings{
   @override
   void dependencies() {
-    // AppMainController ko yahan initialize karna chahiye
     Get.put<AppMainController>(AppMainController());
   }
 }
